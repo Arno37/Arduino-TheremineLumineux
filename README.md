@@ -1,22 +1,23 @@
-# Projet : Lampe d'Ambiance Arduino
+# Arduino - Thérémine Lumineux
 
-Une lampe d'ambiance avec Arduino est un projet électronique classique qui permet de contrôler la couleur et l'intensité d'une source lumineuse à l'aide de capteurs de lumière (phototransistors) et d'une carte Arduino.
+Un projet permettant de créer un instrument de musique (type thérémine) dont la hauteur de la note varie en fonction de la lumière captée par une photorésistance.
 
-![Photo du montage](LampeAmbiance/LampeAmbiance.JPG)
+## 📸 Schéma du montage physique
 
-## 🛠 Matériel nécessaire (version de base)
-- Carte Arduino (type Arduino Uno ou Nano)[cite: 1]
-- LED RGB (à cathode ou anode commune)[cite: 1]
-- 3 Phototransistors (ou photorésistances LDR) pour une variation automatique selon la lumière ambiante[cite: 1]
-- Résistances adaptées[cite: 1]
-- Breadboard et câbles de connexion (Jumpers)[cite: 1]
+<p align="center">
+  <img src="TheremineLumineux/IMG_3497.JPG" alt="Montage du Thérémine Lumineux sur Arduino Uno" width="600px">
+</p>
 
-## ⚙️ Principe de fonctionnement
+## 🛠️ Composants utilisés
+- 1x Carte **Arduino Uno**
+- 1x **Photorésistance (LDR)** associée à une résistance de **10 kΩ** (pont diviseur de tension)
+- 1x **Buzzer** (relié à la broche numérique `8`)
+- 1x **Breadboard** et des fils de connexions
 
-1. **La commande de couleur :** Les broches PWM (Pulse Width Modulation) de l'Arduino envoient un signal analogique simulé (valeurs de 0 à 255) à chaque canal de la LED RGB pour mélanger les couleurs (synthèse additive)[cite: 1].
-2. **L'interaction :** 
-   - Le système lit en continu la luminosité captée par les trois phototransistors sur les entrées analogiques (`A0`, `A1`, `A2`).
-   - L'Arduino recalcule ces valeurs pour piloter dynamiquement les broches PWM (`9`, `10`, `11`) reliées aux canaux de la LED RGB.
+## 🧠 Principe de fonctionnement
+1. **Capteur :** La photorésistance fait varier la tension électrique transmise à la broche analogique `A0` selon l'intensité lumineuse perçue.
+2. **Calibrage :** Au démarrage, une boucle enregistre automatiquement les seuils minimums et maximums de lumière de la pièce.
+3. **Son :** L'Arduino convertit cette valeur lumineuse en une fréquence sonore jouée en temps réel par le buzzer.
 
 ## 💻 Code Source
-Le code source complet de ce projet se trouve dans le fichier [`LampeAmbiance/LampeAmbiance.ino`](LampeAmbiance/LampeAmbiance.ino).
+Le code source complet de ce projet se trouve dans le fichier [`TheremineLumineux/TheremineLumineux.ino`](TheremineLumineux/TheremineLumineux.ino).
