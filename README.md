@@ -4,8 +4,7 @@ Un projet permettant de créer un instrument de musique (type thérémine) dont 
 
 ## 📸 Schéma du montage physique
 
-![Uploading TheremineLumineux.JPG…]()
-
+![Montage du Thérémine Lumineux](TheremineLumineux/TheremineLumineux.JPG)
 
 ## 🛠️ Composants utilisés
 - 1x Carte **Arduino Uno**
